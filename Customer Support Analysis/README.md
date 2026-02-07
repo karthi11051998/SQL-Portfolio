@@ -4,16 +4,16 @@
 This project transforms a raw, flat dataset of 8,000+ customer support records into a normalized, relational database. The goal was to clean "dirty" synthetic data, establish data integrity through a multi-table schema, and derive actionable business insights regarding product reliability and support team performance.
 
 ## Tech Stack
-Language: SQL (MySQL)
-Tooling: MySQL Workbench
-Concepts: Data Normalization, Data Validation, Views, Conditional Aggregation, Joins, and Time-Series Analysis.
+- Language: SQL (MySQL)
+- Tooling: MySQL Workbench
+- Concepts: Data Normalization, Data Validation, Views, Conditional Aggregation, Joins, and Time-Series Analysis.
 
 ## Database Architecture
 The original dataset was normalized into three distinct tables to reduce redundancy and improve query performance:
 
-Customers: Stores unique customer profiles.
-Products: A lookup table for all items in the catalog.
-Tickets: The central fact table containing ticket details, status, and timestamps.
+- Customers: Stores unique customer profiles.
+- Products: A lookup table for all items in the catalog.
+- Tickets: The central fact table containing ticket details, status, and timestamps.
 
 ## Data Cleaning & Quality Assurance
 A major challenge identified during the EDA (Exploratory Data Analysis) phase was Chronological Inconsistency. Approximately 1,300 records contained resolution timestamps that occurred before the initial response.
