@@ -26,9 +26,9 @@ Solution: Instead of deleting data, I implemented a Reporting View (v_cleaned_ti
 - Operational Flaws: Revealed gaps where "Low" priority tickets were occasionally being resolved faster than "Critical" tickets, suggesting a need for better queue management.
 
 ## How to Use
-Database Setup: Open the customer_support_tickets_analysis.sql file in MySQL Workbench.
-Execution: Run the script in its entirety. It is designed to:
-- Create the Schema: Sets up the Customers, Products, and Tickets tables.
-- Data Ingestion: Migrates data from the raw staging table into the normalized relational structure.
-- Logic Layer: Automatically creates the v_cleaned_tickets view to handle data anomalies.
-Reporting: Once the script finishes, you can run any of the 10 analysis queries located at the bottom of the file to see the results instantly.
+- Database Setup: Open the customer_support_tickets_analysis.sql file in MySQL Workbench.
+- Execution: Run the script in its entirety. It is designed to:
+  - Create the Schema: Sets up the Customers, Products, and Tickets tables.
+  - Data Ingestion: Migrates data from the raw staging table into the normalized relational structure.
+  - Logic Layer: Automatically creates the v_cleaned_tickets view to handle data anomalies.
+- Reporting: Once the script finishes, you can run any of the 10 analysis queries located at the bottom of the file to see the results instantly.
