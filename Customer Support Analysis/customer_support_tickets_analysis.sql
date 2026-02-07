@@ -2,6 +2,7 @@
 CREATE DATABASE CustomerSupportDB;
 USE CustomerSupportDB;
 
+
 -- Creating Raw  data table:
 CREATE TABLE raw_tickets (
     ticket_id TEXT,
@@ -88,7 +89,19 @@ WHERE product_purchased IS NOT NULL;
 
 
 -- Inserting Tickets data into Customers table from raw data table:
-INSERT INTO Tickets (ticket_id, customer_id, product_id, ticket_type, priority, status, channel, purchase_date, first_response_time, resolved_at, satisfaction_score)
+INSERT INTO Tickets (
+	ticket_id,
+	customer_id,
+	product_id,
+	ticket_type,
+	priority,
+	status,
+	channel,
+	purchase_date,
+	first_response_time,
+	resolved_at,
+	satisfaction_score
+	)
 SELECT 
     t.ticket_id, 
     c.customer_id, 
@@ -149,7 +162,10 @@ FROM Tickets
 WHERE resolved_at < first_response_time;
 
 
--- The query revealed 1,339 invalid resolution cases. Instead of deleting this data, I created a view to handle the errors properly during analysis while keeping our database records complete.
+/*The query identified 1,339 records with invalid resolution timestamps. Including these records in analysis would distort key performance metrics.
+Rather than deleting the affected data, I created a view that programmatically handles these inconsistencies during analysis,
+ensuring accurate reporting while preserving the completeness of the original dataset.*/
+
 CREATE OR REPLACE VIEW v_cleaned_tickets AS
 SELECT 
     ticket_id,
